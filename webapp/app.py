@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-import requests
 import xml.etree.ElementTree as ET
 from lib.query import search_pubmed
 
