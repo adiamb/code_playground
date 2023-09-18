@@ -5,7 +5,7 @@ requirements.txt: requirements.in
 	pip-compile --strip-extras requirements.in > requirements.txt
 
 build: requirements.txt
-	docker build -t ${local_image} . 
+	docker build -t ${local_image} .
 
 bash:
 	docker run -it ${vol_mounts} ${local_image} /bin/bash
@@ -17,4 +17,3 @@ jupyter:
 webapp:
 	docker run -it -p 8888:5000 ${vol_mounts} ${local_image} \
 	python /app/app.py
-
