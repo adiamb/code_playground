@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Publication List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .publication {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+        }
+        .publication h2 {
+            font-size: 1.2em;
+        }
+        .publication p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>List of Publications</h1>
+    
+    {% if publications %}
+        {% for publication in publications %}
+            <div class="publication">
+                <h2>{{ publication.title }}</h2>
+                <p><strong>Published in:</strong> {{ publication.journal }}, {{ publication.year }}</p>
+                <p><strong>Abstract:</strong> {{ publication.abstract }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No publications found.</p>
+    {% endif %}
+</body>
+</html>
