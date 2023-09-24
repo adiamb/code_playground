@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import xml.etree.ElementTree as ET
-from lib.query import search_pubmed
+from lib.query import search_pubmed, parse_authors
 
 app = Flask(__name__)
 
@@ -27,6 +27,7 @@ def get_publications():
                     "title": root.find(".//ArticleTitle").text,
                     "journal": root.find(".//Title").text,
                     "year": root.find(".//PubDate/Year").text,
+                    "authors": parse_authors(root),
                     "abstract": root.find(".//AbstractText").text,
                 }
             except AttributeError:

@@ -24,6 +24,9 @@
     </style>
 </head>
 <body>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet">
+    <meta charset="utf-8">
     <h1>List of Publications</h1>
 
     {% if publications %}
@@ -31,7 +34,7 @@
             <div class="publication">
                 <h2>{{ publication.title }}</h2>
                 <p><strong>Published in:</strong> {{ publication.journal }}, {{ publication.year }}</p>
-                <p><strong>Abstract:</strong> {{ publication.abstract }}</p>
+                <p><strong>Authors:</strong> {{ publication.authors }}</p>
             </div>
         {% endfor %}
     {% else %}
