@@ -38,5 +38,15 @@ def get_publications():
         return render_template("error.html", message="Author name not provided")
 
 
+@app.route("/cv", methods=["GET"])
+def get_cv():
+    return render_template("cv.html")
+
+
+@app.route("/contact", methods=["GET"])
+def get_contact():
+    return render_template("contact.html")
+
+
 if __name__ == "__main__":
     app.run(port=5000, threaded=True, host="0.0.0.0")
